@@ -9,7 +9,9 @@
 let default_config = {
 
 }
-
+// 不同项目需要设置不同的storageName，不然会导致配置信息混乱
+// TODO: 根据项目修改storageName
+let CONFIG_STORAGE_NAME = 'test'
 let config ={
     // TODO： 补全企业微信信息
     corpid: null,
@@ -28,6 +30,7 @@ module.exports = function (__runtime__, scope) {
       scope.config_instance = {
         config: config,
         default_config: default_config,
+        storage_name: CONFIG_STORAGE_NAME
       }
     }
     return scope.config_instance
