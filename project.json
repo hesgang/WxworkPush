@@ -1,0 +1,10 @@
+{
+    "name": "自动化打卡",
+    "main": "test.js",
+    "ignore": [
+        "build"
+    ],
+    "packageName": "com.tony.play",
+    "versionName": "develop_version",
+    "versionCode": 1
+}
