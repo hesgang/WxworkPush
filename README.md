@@ -1,10 +1,11 @@
 
-> 基于[服务端API](https://developer.work.weixin.qq.com/document/path/91201)开发
-> 使用**autojs**开发
+> 基于[服务端API](https://developer.work.weixin.qq.com/document/path/91201)  
+> 使用**autojs**  
+> 根据TODO填写必要参数
 
 - **前言**：初学JS，通过pushplus与sever酱推送了消息，发现还是企业微信的可操作性比较大，而且pushplus推送也可以转发到企业微信，所以尝试通过JS将自动化打卡数据等内容推送到企业微信。  
 
-> 根据TODO填写必要参数
+
 
 ## 流程
 > 注意配置`config.js`中的企业微信信息  
@@ -23,8 +24,18 @@
 
 > js数据缓存与读取
 >
-> > 使用**storages**，具体方法见 [链接](https://pro.autojs.org/docs/#/zh-cn/storages)  
-> > 由于storages保存的数据在脚本之间是共享的，任何脚本只要知道storage名称便可以获取到相应的数据，因此它不能用于敏感数据的储存。 storages无法像Web开发中LocalStorage一样提供根据域名独立的存储，因为脚本的路径随时可能改变。
-> > 因此，为了使脚本数据不相互干扰，需根据脚本配置不同的 `storageName` -> `config.js`文件中修改
+> - 使用**storages**，具体方法见 [链接](https://pro.autojs.org/docs/#/zh-cn/storages)  
+> - 由于storages保存的数据在脚本之间是共享的，任何脚本只要知道storage名称便可以获取到相应的数据，因此它不能用于敏感数据的储存。 storages无法像Web开发中LocalStorage一样提供根据域名独立的存储，因为脚本的路径随时可能改变。
+> - 因此，为了使脚本数据不相互干扰，需根据脚本配置不同的 `storageName` -> `config.js`文件中修改
 >
 > 
+
+3. 发送信息 ---> message_template.js
+- send_msg(msg_type, _msg, ToUser)
+> 可直接发送*文本消息*、*图片消息*、*语音消息*、*视频消息*、*文件消息*、*模板卡片信息等*等，只需要修改 `_msg`的内容格式即可  
+>[ 参考开发文档](https://developer.work.weixin.qq.com/document/path/90236#%E6%8E%A5%E5%8F%A3%E5%AE%9A%E4%B9%89)
+
+- 使用方法见demo.js(包含部分发送数据的格式)
+
+## end
+
