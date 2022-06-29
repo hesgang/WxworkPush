@@ -34,8 +34,8 @@ function API_token(_corpid, _corpsecret){
     this.cache_token = function(_flag){
         var _flag = arguments[0] ? arguments[0] : false;
         let cache_time = storageConfig.get('token_cache_time');
-        let now_time = new Date();
-        if(typeof cache_time === 'undefined' || (now_time - cache_time)>600000 || _flag){
+        let now_time = parseInt(new Date().getTime() / 1000);
+        if(typeof cache_time === 'undefined' || (now_time - cache_time)>6000000 || _flag){
             let _token = this.HttpToken();
             storageConfig.put('access_token', _token);
             storageConfig.put('token_cache_time', now_time);
@@ -45,8 +45,8 @@ function API_token(_corpid, _corpsecret){
     this.get_token = function(){
         var _token = storageConfig.get('access_token');
         let cache_time = storageConfig.get('token_cache_time');
-        let now_time = new Date();
-        if(_token == null || (now_time - cache_time)>600000){  // 无token或token过期时，重新获取并缓存token
+        let now_time = parseInt(new Date().getTime() / 1000);
+        if(_token == null || (now_time - cache_time)>6000000){  // 无token或token过期时，重新获取并缓存token
             this.cache_token(true);
             _token = storageConfig.get('access_token');
             if(_token == null){
